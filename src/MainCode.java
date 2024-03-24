@@ -1,12 +1,13 @@
 import java.util.Collections;
 import java.util.Scanner;
 
-public class mainCode() {
+public class MainCode {
     public static void main(String[] args){
         Scanner read = new  Scanner(System.in);
+
         System.out.println("Enter you credit card limit: ");
         double cclimit = read.nextDouble();
-        creditCard card = new creditCard(cclimit);
+        CreditCard card = new CreditCard(cclimit);
 
         int exit = 1;
         while(exit !=0){
@@ -14,8 +15,8 @@ public class mainCode() {
             String description = read.next();
             System.out.println("Type the value of the product: ");
             double value = read.nextDouble();
-            shopList shop = new shopList(description,value);
-            boolean successful = card.addShop(shop);
+            Shopping shopList = new Shopping(description,value);
+            boolean successful = card.shopCard(shopList);
             if (successful) {
                 System.out.println("The transaction was successful");
                 System.out.println("type 0 to exit or 1 to continue.");
@@ -27,11 +28,11 @@ public class mainCode() {
         }
         System.out.println("-------------------");
         System.out.println("Transactions: \n");
-        Collections.sort(card.getShopList());
-        for (Shop s : card.getShopList()){
+        Collections.sort(card.getShopping());
+        for (Shopping s : card.getShopping()){
             System.out.println(s.getDescription() + " - " + s.getValue());
         }
         System.out.println("\n-------------------");
-        System.out.println("Balance: " + card.getCash);
+        System.out.println("Balance: " + card.getBalance());
     }
 }
