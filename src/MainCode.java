@@ -30,9 +30,9 @@ public class MainCode {
         System.out.println("Transactions: \n");
         Collections.sort(card.getShopping());
         for (Shopping s : card.getShopping()){
-            System.out.println(s.getDescription() + " - " + s.getValue());
+            System.out.println(s.getDescription() + " - " + s.getValue()  + "\n");
         }
-        System.out.println("\n-------------------");
         System.out.println("Balance: " + card.getBalance());
+        System.out.println("-------------------");
     }
 }
